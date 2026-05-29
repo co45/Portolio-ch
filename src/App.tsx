@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { ContactForm } from "./components/ContactForm";
-import { HeroVisual } from "./components/HeroVisual";
 import { Navigation } from "./components/Navigation";
 import { ProjectsGrid } from "./components/ProjectsGrid";
 import { Section } from "./components/Section";
@@ -86,9 +85,10 @@ function App() {
       <main>
         <section
           id="home"
-          className="section-shell grid min-h-screen items-center gap-12 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr]"
+          className="section-shell flex min-h-screen items-center pb-20 pt-32"
         >
           <motion.div
+            className="max-w-4xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
@@ -139,7 +139,6 @@ function App() {
               </motion.a>
             </div>
           </motion.div>
-          <HeroVisual copy={copy.heroVisual} />
         </section>
 
         <Section id="about" eyebrow={copy.about.eyebrow} title={copy.about.title}>
