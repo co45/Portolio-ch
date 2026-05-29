@@ -9,6 +9,33 @@ import { translations, type Language } from "./data/i18n";
 
 type Theme = "dark" | "light";
 
+const profilePhotoUrl = "https://github.com/co45.png?size=240";
+
+function renderHeroTitle(title: string) {
+  if (title.includes("Full Stack Web")) {
+    const [before, after] = title.split("Web");
+
+    return (
+      <>
+        {before}
+        <span className="hero-photo-wrap" aria-hidden="true">
+          <img className="hero-photo" src={profilePhotoUrl} alt="" />
+        </span>
+        Web{after}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span className="hero-photo-wrap" aria-hidden="true">
+        <img className="hero-photo" src={profilePhotoUrl} alt="" />
+      </span>
+      {title}
+    </>
+  );
+}
+
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem("portfolio-theme");
@@ -64,7 +91,7 @@ function App() {
             <p className="eyebrow">{profile.location}</p>
             <h1 className="hero-title">
               {profile.name}
-              <span>{profile.title}</span>
+              <span>{renderHeroTitle(profile.title)}</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/[0.68]">
               {profile.intro}
