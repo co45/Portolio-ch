@@ -9,6 +9,38 @@ import { translations, type Language } from "./data/i18n";
 
 type Theme = "dark" | "light";
 
+const skillLogoSlugs: Record<string, string> = {
+  Angular: "angular",
+  React: "react",
+  "Spring Boot": "springboot",
+  "Node.js": "nodedotjs",
+  Express: "express/white",
+  Django: "django",
+  ".NET": "dotnet",
+  JavaScript: "javascript",
+  TypeScript: "typescript",
+  HTML: "html5",
+  CSS: "css",
+  PHP: "php",
+  MySQL: "mysql",
+  MongoDB: "mongodb",
+  PostgreSQL: "postgresql",
+  Docker: "docker",
+  Jenkins: "jenkins",
+  "AWS S3":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  Microservices: "kubernetes",
+  WordPress: "wordpress",
+};
+
+function getSkillLogoSrc(skill: string) {
+  const logo = skillLogoSlugs[skill];
+
+  return logo.startsWith("https://")
+    ? logo
+    : `https://cdn.simpleicons.org/${logo}`;
+}
+
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem("portfolio-theme");
@@ -132,13 +164,21 @@ function App() {
               <motion.div
                 key={skill}
                 className="skill-chip"
+                title={skill}
+                aria-label={skill}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.035 }}
                 whileHover={{ y: -5, borderColor: "rgba(69,223,203,0.55)" }}
               >
-                {skill}
+                <img
+                  className="skill-logo"
+                  src={getSkillLogoSrc(skill)}
+                  alt=""
+                  loading="lazy"
+                />
+                <span className="sr-only">{skill}</span>
               </motion.div>
             ))}
           </div>

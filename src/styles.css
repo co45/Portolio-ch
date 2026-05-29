@@ -142,7 +142,15 @@ a {
   }
 
   .skill-chip {
-    @apply flex min-h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-5 text-center font-semibold text-white/[0.78] shadow-glass backdrop-blur-xl transition;
+    @apply flex aspect-[1.35] min-h-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.08] p-5 shadow-glass backdrop-blur-xl transition;
+  }
+
+  .skill-logo {
+    @apply h-14 w-14 object-contain drop-shadow-2xl transition sm:h-16 sm:w-16;
+  }
+
+  .skill-chip:hover .skill-logo {
+    transform: scale(1.08);
   }
 
   .project-card {
