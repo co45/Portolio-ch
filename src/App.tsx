@@ -88,7 +88,7 @@ function App() {
           className="section-shell flex min-h-screen items-center pb-20 pt-32"
         >
           <motion.div
-            className="max-w-4xl"
+            className="w-full"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
@@ -107,7 +107,7 @@ function App() {
               </span>
               <span className="hero-role-line">{profile.title}</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/[0.68]">
+            <p className="mt-6 max-w-none text-lg leading-8 text-white/[0.68]">
               {profile.intro}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
