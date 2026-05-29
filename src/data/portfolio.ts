@@ -1,71 +1,86 @@
 export const profile = {
-  name: "Your Name",
-  title: "Computer Engineer & Frontend Developer",
+  name: "Oussema Chaabene",
+  title: "Independent Full Stack Web Engineer",
   intro:
-    "I design and build fast, accessible, and polished web experiences with modern frontend technologies.",
-  location: "Available for remote and on-site opportunities",
-  email: "hello@example.com",
+    "Full stack web engineer working independently on modern digital products.",
+  location: "Tunis, Tunisia | Building web products independently",
+  email: "chaabeneoussema1@gmail.com",
   socials: [
-    { label: "GitHub", href: "https://github.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
-    { label: "Portfolio", href: "https://example.com/" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/chaabene-oussema" },
+    { label: "Email", href: "mailto:chaabeneoussema1@gmail.com" },
+    { label: "Phone", href: "tel:+21626750633" },
   ],
 };
 
 export const navItems = ["About", "Skills", "Projects", "Experience", "Contact"];
 
 export const skills = [
-  "HTML",
-  "CSS",
+  "Angular",
+  "React",
+  "Spring Boot",
+  "Node.js",
+  "Express",
+  "Django",
+  ".NET",
   "JavaScript",
   "TypeScript",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Responsive Design",
-  "UI/UX",
-  "Git",
-  "REST APIs",
-  "Performance Optimization",
+  "HTML",
+  "CSS",
+  "PHP",
+  "MySQL",
+  "MongoDB",
+  "PostgreSQL",
+  "Docker",
+  "Jenkins",
+  "AWS S3",
+  "Microservices",
+  "WordPress",
 ];
 
 export const projects = [
   {
-    title: "SaaS Analytics Dashboard",
-    type: "Frontend Architecture",
+    title: "EcoWarriors",
+    type: "Social Web Platform",
     description:
-      "A responsive dashboard with clean data visualization, reusable components, and fast interactions.",
-    stack: ["React", "TypeScript", "Tailwind CSS"],
+      "Collaborated on a web application promoting ecological actions, sustainability, and environmental awareness.",
+    stack: ["MongoDB", "Express", "React", "Node.js"],
   },
   {
-    title: "E-Commerce Web Experience",
-    type: "UI Engineering",
+    title: "CRM Solution",
+    type: "Full Stack Internship",
     description:
-      "A polished shopping interface focused on conversion, accessibility, and mobile-first performance.",
-    stack: ["Next.js", "APIs", "Performance"],
+      "Developed CRM features for email management, mailing lists, employee hierarchy management, and Amazon S3 file storage.",
+    stack: ["Spring Boot", "Angular", "MySQL", "MongoDB", "AWS S3"],
   },
   {
-    title: "Developer Portfolio System",
-    type: "Design & Build",
+    title: "ERP Process Management",
+    type: "Full Stack Internship",
     description:
-      "A high-end personal site with animated sections, glass components, and editable content data.",
-    stack: ["React", "Framer Motion", "UI/UX"],
+      "Designed and deployed an ERP solution for managing company processes.",
+    stack: ["Spring Boot", "Angular", "PostgreSQL"],
   },
 ];
 
 export const experience = [
   {
-    role: "Computer Engineering Graduate",
-    organization: "Your University or Institution",
-    period: "2021 - 2025",
+    role: "Computer Engineering Degree, Full Stack Development",
+    organization: "ESPRIT - Private Higher School of Engineering and Technology",
+    period: "2021 - Present",
     detail:
-      "Built a strong foundation in software engineering, systems thinking, web technologies, and problem solving.",
+      "Engineering program focused on software development and full stack web technologies.",
   },
   {
-    role: "Frontend Developer",
-    organization: "Freelance / Personal Projects",
-    period: "2023 - Present",
+    role: "Full Stack Web Engineer Intern",
+    organization: "Mosofty",
+    period: "Jul. 2023 - Sep. 2023",
     detail:
-      "Create modern web interfaces, integrate APIs, improve responsiveness, and optimize user experience.",
+      "Built CRM, email, employee hierarchy, file storage, microservices, Docker, Jenkins, and AWS S3 features.",
+  },
+  {
+    role: "Senior IT Technician Intern",
+    organization: "Toucomex",
+    period: "Mar. 2021 - Jun. 2021",
+    detail:
+      "Built an ERP solution with Spring Boot, Angular, and PostgreSQL.",
   },
 ];

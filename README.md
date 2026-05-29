@@ -1,6 +1,6 @@
 # Portfolio CH
 
-A modern one-page portfolio website for a computer engineer specializing in web development and frontend development.
+A modern one-page portfolio website for Oussema Chaabene, a full stack web engineer.
 
 ## Stack
 
@@ -46,7 +46,7 @@ src/data/i18n.ts
 
 To add Arabic later, add a new language key to the same translation object and update the language switcher options.
 
-## Replace The CV
+## CV
 
 The Download CV button uses:
 
@@ -54,7 +54,7 @@ The Download CV button uses:
 public/cv.pdf
 ```
 
-Replace that placeholder file with your real resume PDF before publishing.
+This file has been replaced with Oussema Chaabene's current CV.
 
 ## Contact Form
 
@@ -67,4 +67,4 @@ Until an endpoint is added, the form runs in demo mode after validation.
 
 ## SEO
 
-SEO and social sharing tags are in `index.html`. Replace the placeholder `public/og-image.svg` with your own preview image before launch.
+SEO and social sharing tags are in `index.html`. The social preview image is `public/og-image.svg`.

@@ -73,26 +73,32 @@ export function ProjectsGrid({ copy }: ProjectsGridProps) {
                   </span>
                 ))}
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={project.demoUrl}
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${copy.liveDemo}: ${project.title}`}
-                >
-                  {copy.liveDemo}
-                </a>
-                <a
-                  href={project.githubUrl}
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${copy.github}: ${project.title}`}
-                >
-                  {copy.github}
-                </a>
-              </div>
+              {(project.demoUrl || project.githubUrl) && (
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      className="project-link"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${copy.liveDemo}: ${project.title}`}
+                    >
+                      {copy.liveDemo}
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      className="project-link"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${copy.github}: ${project.title}`}
+                    >
+                      {copy.github}
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.article>
           ))}
         </AnimatePresence>
