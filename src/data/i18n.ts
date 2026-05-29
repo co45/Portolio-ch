@@ -38,8 +38,8 @@ export const translations = {
       name: "Oussema Chaabene",
       title: "Full Stack Web Engineer",
       intro:
-        "Full stack web engineer working independently on modern digital products, combining frontend craft, backend architecture, databases, deployment, and a constant drive to learn and build useful software.",
-      location: "Tunis, Tunisia | Building web products independently",
+        "Full stack web engineer working on modern digital products, combining frontend craft, backend architecture, databases, deployment, and a constant drive to learn and build useful software.",
+      location: "Tunis, Tunisia | Building web products",
       email: "chaabeneoussema1@gmail.com",
       socials: [
         {
@@ -207,7 +207,7 @@ export const translations = {
       eyebrow: "Contact",
       title: "Let's discuss a project, product, or collaboration.",
       body:
-        "I work independently on full stack web projects and digital products. You can reach me by email, LinkedIn, or phone.",
+        "I work on full stack web projects and digital products. You can reach me by email, LinkedIn, or phone.",
       formTitle: "Send a message",
       name: "Name",
       email: "Email",
@@ -222,9 +222,9 @@ export const translations = {
   },
   fr: {
     meta: {
-      title: "Oussema Chaabene | Ingenieur Web Full Stack Independant",
+      title: "Oussema Chaabene | Ingenieur Web Full Stack",
       description:
-        "Portfolio de Oussema Chaabene, ingenieur web full stack independant specialise en Angular, React, Spring Boot, Node, Express, Django, .NET, bases de donnees, Docker, Jenkins et AWS S3.",
+        "Portfolio de Oussema Chaabene, ingenieur web full stack specialise en Angular, React, Spring Boot, Node, Express, Django, .NET, bases de donnees, Docker, Jenkins et AWS S3.",
     },
     nav: {
       brand: "Oussema Chaabene",
@@ -241,10 +241,10 @@ export const translations = {
     },
     profile: {
       name: "Oussema Chaabene",
-      title: "Ingenieur Web Full Stack Independant",
+      title: "Ingenieur Web Full Stack",
       intro:
-        "Ingenieur web full stack travaillant de maniere independante sur des produits numeriques modernes, avec une approche qui combine frontend, backend, bases de donnees, deploiement et apprentissage continu.",
-      location: "Tunis, Tunisie | Creation de produits web en independant",
+        "Ingenieur web full stack travaillant sur des produits numeriques modernes, avec une approche qui combine frontend, backend, bases de donnees, deploiement et apprentissage continu.",
+      location: "Tunis, Tunisie | Creation de produits web",
       email: "chaabeneoussema1@gmail.com",
       socials: [
         {
@@ -412,7 +412,7 @@ export const translations = {
       eyebrow: "Contact",
       title: "Discutons d'un projet, d'un produit ou d'une collaboration.",
       body:
-        "Je travaille en independant sur des projets web full stack et des produits numeriques. Vous pouvez me contacter par email, LinkedIn ou telephone.",
+        "Je travaille sur des projets web full stack et des produits numeriques. Vous pouvez me contacter par email, LinkedIn ou telephone.",
       formTitle: "Envoyer un message",
       name: "Nom",
       email: "Email",

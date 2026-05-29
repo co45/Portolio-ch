@@ -2,8 +2,8 @@ export const profile = {
   name: "Oussema Chaabene",
   title: "Full Stack Web Engineer",
   intro:
-    "Full stack web engineer working independently on modern digital products.",
-  location: "Tunis, Tunisia | Building web products independently",
+    "Full stack web engineer working on modern digital products.",
+  location: "Tunis, Tunisia | Building web products",
   email: "chaabeneoussema1@gmail.com",
   socials: [
     { label: "LinkedIn", href: "https://linkedin.com/in/chaabene-oussema" },
