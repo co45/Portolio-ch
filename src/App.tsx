@@ -73,7 +73,7 @@ function App() {
                 </span>
                 {profile.name}
               </span>
-              <span>{profile.title}</span>
+              <span className="hero-role-line">{profile.title}</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/[0.68]">
               {profile.intro}
