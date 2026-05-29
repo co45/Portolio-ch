@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Portfolio social preview placeholder">
+  <rect width="1200" height="630" fill="#070a12"/>
+  <circle cx="160" cy="120" r="220" fill="#45dfcb" opacity="0.28"/>
+  <circle cx="1020" cy="190" r="260" fill="#ff79c6" opacity="0.2"/>
+  <text x="90" y="300" fill="#ffffff" font-family="Arial, sans-serif" font-size="68" font-weight="700">Frontend Developer Portfolio</text>
+  <text x="94" y="370" fill="#45dfcb" font-family="Arial, sans-serif" font-size="34">Replace this placeholder with your own 1200x630 preview image.</text>
+</svg>

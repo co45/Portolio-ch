@@ -1,19 +1,61 @@
 import { motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { ContactForm } from "./components/ContactForm";
 import { HeroVisual } from "./components/HeroVisual";
 import { Navigation } from "./components/Navigation";
+import { ProjectsGrid } from "./components/ProjectsGrid";
 import { Section } from "./components/Section";
-import { experience, profile, projects, skills } from "./data/portfolio";
+import { translations, type Language } from "./data/i18n";
+
+type Theme = "dark" | "light";
 
 function App() {
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    return savedTheme === "light" ? "light" : "dark";
+  });
+  const [language, setLanguage] = useState<Language>(() => {
+    const savedLanguage = localStorage.getItem("portfolio-language");
+    return savedLanguage === "fr" ? "fr" : "en";
+  });
+
+  const copy = useMemo(() => translations[language], [language]);
+  const profile = copy.profile;
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem("portfolio-language", language);
+    document.title = copy.meta.title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", copy.meta.description);
+  }, [copy.meta.description, copy.meta.title, language]);
+
   return (
     <div className="min-h-screen overflow-hidden bg-ink text-white">
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <div className="ambient ambient-three" />
-      <Navigation />
+      <Navigation
+        copy={copy.nav}
+        language={language}
+        theme={theme}
+        onLanguageChange={setLanguage}
+        onThemeToggle={() =>
+          setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"))
+        }
+      />
 
       <main>
-        <section id="home" className="section-shell grid min-h-screen items-center gap-12 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr]">
+        <section
+          id="home"
+          className="section-shell grid min-h-screen items-center gap-12 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr]"
+        >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -28,28 +70,46 @@ function App() {
               {profile.intro}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <motion.a href="#projects" className="button-primary" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
-                View Projects
+              <motion.a
+                href="#projects"
+                className="button-primary"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {copy.hero.viewProjects}
               </motion.a>
-              <motion.a href="#contact" className="button-secondary" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
-                Contact Me
+              <motion.a
+                href="#contact"
+                className="button-secondary"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {copy.hero.contactMe}
+              </motion.a>
+              <motion.a
+                href={`${import.meta.env.BASE_URL}cv.pdf`}
+                download
+                className="button-secondary"
+                aria-label={copy.hero.downloadCvLabel}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {copy.hero.downloadCv}
               </motion.a>
             </div>
           </motion.div>
-          <HeroVisual />
+          <HeroVisual copy={copy.heroVisual} />
         </section>
 
-        <Section id="about" eyebrow="About" title="Computer engineering mindset, frontend product craft.">
+        <Section id="about" eyebrow={copy.about.eyebrow} title={copy.about.title}>
           <div className="glass-panel grid gap-8 p-6 md:grid-cols-[1fr_0.75fr] md:p-8">
-            <p className="text-lg leading-8 text-white/70">
-              I am a computer engineer focused on building modern web products that are useful, elegant, and reliable.
-              My work blends software fundamentals with frontend engineering, responsive design, accessibility, and
-              thoughtful UI/UX decisions. I enjoy turning complex requirements into interfaces that people can understand
-              quickly and use confidently.
-            </p>
+            <p className="text-lg leading-8 text-white/70">{copy.about.body}</p>
             <div className="grid gap-3">
-              {["Clean architecture", "Accessible interfaces", "Fast loading experiences"].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-4 text-white/80">
+              {copy.about.highlights.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-4 text-white/80"
+                >
                   {item}
                 </div>
               ))}
@@ -57,9 +117,9 @@ function App() {
           </div>
         </Section>
 
-        <Section id="skills" eyebrow="Skills" title="Tools and practices I use to ship polished web experiences.">
+        <Section id="skills" eyebrow={copy.skills.eyebrow} title={copy.skills.title}>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {skills.map((skill, index) => (
+            {copy.skills.items.map((skill, index) => (
               <motion.div
                 key={skill}
                 className="skill-chip"
@@ -75,35 +135,32 @@ function App() {
           </div>
         </Section>
 
-        <Section id="projects" eyebrow="Projects" title="Selected work shaped for clarity, speed, and polish.">
-          <div className="grid gap-5 lg:grid-cols-3">
-            {projects.map((project) => (
-              <motion.article key={project.title} className="project-card" whileHover={{ y: -10, rotateX: 2, rotateY: -2 }}>
-                <p className="text-sm font-medium text-[#45dfcb]">{project.type}</p>
-                <h3 className="mt-4 text-2xl font-semibold">{project.title}</h3>
-                <p className="mt-4 leading-7 text-white/[0.62]">{project.description}</p>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {project.stack.map((item) => (
-                    <span key={item} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/[0.68]">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
-          </div>
+        <Section
+          id="projects"
+          eyebrow={copy.projects.eyebrow}
+          title={copy.projects.title}
+        >
+          <ProjectsGrid copy={copy.projects} />
         </Section>
 
-        <Section id="experience" eyebrow="Experience" title="Education and practical frontend development experience.">
+        <Section
+          id="experience"
+          eyebrow={copy.experience.eyebrow}
+          title={copy.experience.title}
+        >
           <div className="grid gap-4">
-            {experience.map((item) => (
+            {copy.experience.items.map((item) => (
               <article key={item.role} className="glass-panel p-6">
                 <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                   <div>
                     <h3 className="text-xl font-semibold">{item.role}</h3>
-                    <p className="mt-1 text-white/[0.58]">{item.organization}</p>
+                    <p className="mt-1 text-white/[0.58]">
+                      {item.organization}
+                    </p>
                   </div>
-                  <p className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/[0.65]">{item.period}</p>
+                  <p className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/[0.65]">
+                    {item.period}
+                  </p>
                 </div>
                 <p className="mt-5 leading-7 text-white/[0.65]">{item.detail}</p>
               </article>
@@ -111,31 +168,46 @@ function App() {
           </div>
         </Section>
 
-        <Section id="contact" eyebrow="Contact" title="Let’s build a clean, fast, and memorable web experience.">
+        <Section id="contact" eyebrow={copy.contact.eyebrow} title={copy.contact.title}>
           <div className="glass-panel p-7 md:p-10">
-            <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
                 <p className="text-lg leading-8 text-white/[0.68]">
-                  Have a project, role, or collaboration in mind? Reach out and I’ll respond with next steps.
+                  {copy.contact.body}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   {profile.socials.map((social) => (
-                    <a key={social.label} href={social.href} className="social-link" target="_blank" rel="noreferrer">
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      className="social-link"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${social.label} profile`}
+                    >
                       {social.label}
                     </a>
                   ))}
                 </div>
+                <motion.a
+                  href={`mailto:${profile.email}`}
+                  className="button-primary mt-8 justify-center"
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {profile.email}
+                </motion.a>
               </div>
-              <motion.a href={`mailto:${profile.email}`} className="button-primary justify-center" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
-                {profile.email}
-              </motion.a>
+              <ContactForm copy={copy.contact} />
             </div>
           </div>
         </Section>
       </main>
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 text-center text-sm text-white/[0.45]">
-        <p>© {new Date().getFullYear()} {profile.name}. Built with React, TypeScript, Tailwind CSS, and Framer Motion.</p>
+        <p>
+          Copyright {new Date().getFullYear()} {profile.name}. {copy.footer}
+        </p>
       </footer>
     </div>
   );

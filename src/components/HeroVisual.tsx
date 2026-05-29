@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
+import type { Language, translations } from "../data/i18n";
 
-const stats = [
-  ["99", "Performance"],
-  ["AA", "Accessibility"],
-  ["0.8s", "First Load"],
-];
+type HeroVisualCopy = (typeof translations)[Language]["heroVisual"];
 
-export function HeroVisual() {
+export function HeroVisual({ copy }: { copy: HeroVisualCopy }) {
   return (
     <motion.div
       className="relative min-h-[430px] rounded-[2rem] border border-white/[0.14] bg-white/[0.08] p-5 shadow-glass backdrop-blur-2xl"
@@ -20,19 +17,19 @@ export function HeroVisual() {
         <span className="h-3 w-3 rounded-full bg-[#ff6b7a]" />
         <span className="h-3 w-3 rounded-full bg-[#ffd166]" />
         <span className="h-3 w-3 rounded-full bg-[#45dfcb]" />
-        <span className="ml-auto text-xs text-white/50">frontend.tsx</span>
+        <span className="ml-auto text-xs text-white/50">{copy.file}</span>
       </div>
 
       <div className="relative mt-6 grid gap-4">
         <div className="rounded-2xl border border-white/10 bg-black/[0.28] p-5">
-          <p className="text-xs uppercase text-[#45dfcb]">Building</p>
+          <p className="text-xs uppercase text-[#45dfcb]">{copy.label}</p>
           <p className="mt-2 text-2xl font-semibold text-white">
-            Interfaces that feel fast, clear, and alive.
+            {copy.title}
           </p>
         </div>
 
         <div className="grid grid-cols-3 gap-3">
-          {stats.map(([value, label]) => (
+          {copy.stats.map(([value, label]) => (
             <motion.div
               key={label}
               className="rounded-2xl border border-white/10 bg-white/[0.08] p-4"
@@ -46,9 +43,9 @@ export function HeroVisual() {
 
         <div className="rounded-2xl border border-white/10 bg-[#0b1020]/80 p-4 font-mono text-xs leading-6 text-white/70">
           <p><span className="text-[#ff79c6]">const</span> craft = &#123;</p>
-          <p className="pl-4">design: <span className="text-[#45dfcb]">"premium"</span>,</p>
-          <p className="pl-4">code: <span className="text-[#ffd166]">"maintainable"</span>,</p>
-          <p className="pl-4">users: <span className="text-[#9b8cff]">"delighted"</span></p>
+          <p className="pl-4">design: <span className="text-[#45dfcb]">"{copy.design}"</span>,</p>
+          <p className="pl-4">code: <span className="text-[#ffd166]">"{copy.code}"</span>,</p>
+          <p className="pl-4">users: <span className="text-[#9b8cff]">"{copy.users}"</span></p>
           <p>&#125;;</p>
         </div>
       </div>

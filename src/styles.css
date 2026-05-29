@@ -5,9 +5,31 @@
 :root {
   color-scheme: dark;
   font-synthesis: none;
+  --page-bg:
+    linear-gradient(135deg, rgba(7, 10, 18, 0.98), rgba(13, 18, 34, 0.98)),
+    radial-gradient(circle at top left, rgba(69, 223, 203, 0.16), transparent 35%);
+  --body-text: #ffffff;
+  --muted-text: rgba(255, 255, 255, 0.7);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-text: #ffffff;
+  --input-placeholder: rgba(255, 255, 255, 0.45);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page-bg:
+    linear-gradient(135deg, rgba(246, 249, 255, 0.98), rgba(225, 238, 245, 0.98)),
+    radial-gradient(circle at top left, rgba(69, 223, 203, 0.24), transparent 35%);
+  --body-text: #111827;
+  --muted-text: rgba(17, 24, 39, 0.68);
+  --panel-border: rgba(17, 24, 39, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.62);
+  --input-text: #111827;
+  --input-placeholder: rgba(17, 24, 39, 0.46);
 }
 
 * {
@@ -21,9 +43,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(135deg, rgba(7, 10, 18, 0.98), rgba(13, 18, 34, 0.98)),
-    radial-gradient(circle at top left, rgba(69, 223, 203, 0.16), transparent 35%);
+  background: var(--page-bg);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -65,6 +85,14 @@ a {
     @apply rounded-full bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-[#45dfcb];
   }
 
+  .icon-button {
+    @apply flex h-10 min-w-16 items-center justify-center rounded-full border border-white/10 bg-white/[0.08] px-3 text-sm font-bold text-white transition hover:border-[#45dfcb]/60 hover:bg-white/15;
+  }
+
+  .language-select {
+    @apply h-10 rounded-full border border-white/10 bg-white/[0.08] px-3 text-sm font-bold text-white outline-none transition hover:border-[#45dfcb]/60;
+  }
+
   .button-primary {
     @apply inline-flex min-h-12 items-center rounded-full bg-gradient-to-r from-[#45dfcb] to-[#f7f0a3] px-6 py-3 font-bold text-ink shadow-glow transition;
   }
@@ -82,9 +110,111 @@ a {
     transform-style: preserve-3d;
   }
 
+  .filter-button {
+    @apply rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-semibold text-white/70 shadow-glass backdrop-blur-xl transition hover:border-[#45dfcb]/60 hover:text-white;
+  }
+
+  .filter-button-active {
+    @apply border-[#45dfcb]/70 bg-[#45dfcb]/15 text-white;
+  }
+
+  .project-link {
+    @apply rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-semibold text-white/75 transition hover:border-[#45dfcb]/60 hover:text-white;
+  }
+
   .social-link {
     @apply rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm text-white/70 transition hover:border-[#45dfcb]/60 hover:text-white;
   }
+
+  .contact-form {
+    @apply grid gap-4 rounded-[1.25rem] border border-white/10 bg-black/[0.16] p-5 backdrop-blur-xl;
+  }
+
+  .form-field {
+    @apply grid gap-2 text-sm font-semibold text-white/70;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    @apply w-full rounded-2xl border border-white/10 px-4 py-3 outline-none transition focus:border-[#45dfcb]/70;
+    background: var(--input-bg);
+    color: var(--input-text);
+  }
+
+  .form-field textarea {
+    @apply resize-y;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--input-placeholder);
+  }
+
+  .form-status {
+    @apply rounded-2xl px-4 py-3 text-sm font-medium;
+  }
+
+  .form-status-success {
+    @apply border border-[#45dfcb]/30 bg-[#45dfcb]/10 text-[#45dfcb];
+  }
+
+  .form-status-error {
+    @apply border border-[#ff79c6]/30 bg-[#ff79c6]/10 text-[#ff9fce];
+  }
+}
+
+:root[data-theme="light"] body {
+  color: var(--body-text);
+}
+
+:root[data-theme="light"] .bg-ink {
+  background-color: #f7fbff;
+}
+
+:root[data-theme="light"] .text-white,
+:root[data-theme="light"] .text-white\/70,
+:root[data-theme="light"] .text-white\/80,
+:root[data-theme="light"] .text-white\/75,
+:root[data-theme="light"] .text-white\/50,
+:root[data-theme="light"] .text-white\/10,
+:root[data-theme="light"] [class*="text-white/"],
+:root[data-theme="light"] [class*="text-white\\["] {
+  color: var(--body-text);
+}
+
+:root[data-theme="light"] .hero-title span {
+  color: transparent;
+}
+
+:root[data-theme="light"] .glass-panel,
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .skill-chip,
+:root[data-theme="light"] .contact-form,
+:root[data-theme="light"] nav {
+  border-color: var(--panel-border);
+  background-color: rgba(255, 255, 255, 0.54);
+}
+
+:root[data-theme="light"] .nav-link,
+:root[data-theme="light"] .social-link,
+:root[data-theme="light"] .project-link,
+:root[data-theme="light"] .filter-button,
+:root[data-theme="light"] .form-field,
+:root[data-theme="light"] footer {
+  color: var(--muted-text);
+}
+
+:root[data-theme="light"] .icon-button,
+:root[data-theme="light"] .language-select,
+:root[data-theme="light"] .button-secondary {
+  border-color: rgba(17, 24, 39, 0.12);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #111827;
+}
+
+:root[data-theme="light"] .button-mini {
+  background-color: #111827;
+  color: #ffffff;
 }
 
 .ambient {
