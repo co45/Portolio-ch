@@ -85,10 +85,10 @@ function App() {
       <main>
         <section
           id="home"
-          className="section-shell flex min-h-screen items-center pb-20 pt-32"
+          className="home-section"
         >
           <motion.div
-            className="w-full"
+            className="home-content"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
@@ -109,10 +109,10 @@ function App() {
                 </span>
               </span>
             </h1>
-            <p className="mt-6 max-w-none text-lg leading-8 text-white/[0.68]">
+            <p className="hero-intro">
               {profile.intro}
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="hero-actions">
               <motion.a
                 href="#projects"
                 className="button-primary"

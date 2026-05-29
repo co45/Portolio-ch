@@ -57,8 +57,16 @@ a {
     @apply relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:px-8;
   }
 
+  .home-section {
+    @apply relative mx-auto flex min-h-[100svh] w-full max-w-6xl items-center px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36;
+  }
+
+  .home-content {
+    @apply w-full;
+  }
+
   .eyebrow {
-    @apply mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#45dfcb];
+    @apply mb-5 text-xs font-bold uppercase tracking-[0.24em] text-[#45dfcb];
   }
 
   .hero-title {
@@ -70,10 +78,18 @@ a {
   }
 
   .hero-name-line {
-    @apply mb-4 flex flex-col items-start gap-5 text-white sm:flex-row sm:items-center lg:gap-7;
+    @apply mb-5 flex flex-col items-start gap-5 text-white sm:flex-row sm:items-center lg:gap-7;
     background-image: none !important;
     color: #ffffff;
     -webkit-text-fill-color: #ffffff;
+  }
+
+  .hero-intro {
+    @apply mt-5 max-w-none text-lg leading-8 text-white/[0.68];
+  }
+
+  .hero-actions {
+    @apply mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap;
   }
 
   .hero-title-copy {
