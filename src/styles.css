@@ -66,20 +66,28 @@ a {
   }
 
   .hero-role-line {
-    @apply mt-3 block bg-gradient-to-r from-[#45dfcb] via-[#f7f0a3] to-[#ff79c6] bg-clip-text text-transparent;
+    @apply mt-3 block bg-gradient-to-r from-[#45dfcb] via-[#f7f0a3] to-[#ff79c6] bg-clip-text text-3xl leading-tight text-transparent sm:text-4xl lg:text-5xl;
   }
 
   .hero-name-line {
-    @apply mb-4 flex flex-col items-start gap-4 text-white sm:flex-row sm:items-center;
+    @apply mb-4 flex flex-col items-start gap-5 text-white sm:flex-row sm:items-center lg:gap-7;
     background-image: none !important;
     color: #ffffff;
     -webkit-text-fill-color: #ffffff;
   }
 
+  .hero-title-copy {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .hero-name-text {
+    @apply block;
+  }
+
   .hero-photo-wrap {
     @apply relative inline-flex shrink-0 items-end justify-center overflow-hidden rounded-full align-middle;
-    width: clamp(8rem, 16vw, 11.5rem);
-    height: clamp(8rem, 16vw, 11.5rem);
+    width: clamp(10rem, 21vw, 15rem);
+    height: clamp(10rem, 21vw, 15rem);
     transform: translateY(0) rotate(-3deg);
     animation: portraitFloat 5.5s ease-in-out infinite;
   }
@@ -106,7 +114,7 @@ a {
 
   .hero-photo {
     @apply relative h-full w-full object-contain drop-shadow-2xl;
-    transform: scale(1.1) translateY(0.35rem);
+    transform: scale(1.13) translateY(0.55rem);
   }
 
   .section-title {
