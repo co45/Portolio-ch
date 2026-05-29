@@ -1,6 +1,6 @@
 export const profile = {
   name: "Oussema Chaabene",
-  title: "Independent Full Stack Web Engineer",
+  title: "Full Stack Web Engineer",
   intro:
     "Full stack web engineer working independently on modern digital products.",
   location: "Tunis, Tunisia | Building web products independently",

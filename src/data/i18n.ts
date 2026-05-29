@@ -17,9 +17,9 @@ export const projectCategories: Array<"All" | ProjectCategory> = [
 export const translations = {
   en: {
     meta: {
-      title: "Oussema Chaabene | Independent Full Stack Web Engineer",
+      title: "Oussema Chaabene | Full Stack Web Engineer",
       description:
-        "Portfolio of Oussema Chaabene, an independent full stack web engineer specializing in Angular, React, Spring Boot, Node, Express, Django, .NET, databases, Docker, Jenkins, and AWS S3.",
+        "Portfolio of Oussema Chaabene, an Full Stack web engineer specializing in Angular, React, Spring Boot, Node, Express, Django, .NET, databases, Docker, Jenkins, and AWS S3.",
     },
     nav: {
       brand: "Oussema Chaabene",
@@ -36,7 +36,7 @@ export const translations = {
     },
     profile: {
       name: "Oussema Chaabene",
-      title: "Independent Full Stack Web Engineer",
+      title: "Full Stack Web Engineer",
       intro:
         "Full stack web engineer working independently on modern digital products, combining frontend craft, backend architecture, databases, deployment, and a constant drive to learn and build useful software.",
       location: "Tunis, Tunisia | Building web products independently",
